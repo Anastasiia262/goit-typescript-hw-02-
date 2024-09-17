@@ -19,7 +19,13 @@ const SearchBar = ({ onSubmit }: SearchBarProps) => {
     const target = e.target as HTMLFormElement;
     const elements = target.elements as unknown as FormElements;
     const newQuery = elements.query.value.trim();
-    newQuery === '' ? notify() : onSubmit(newQuery);
+    
+    if (newQuery === '') {
+      notify();
+    } else {
+      onSubmit(newQuery);
+    }
+    
     target.reset();
   };
 
