@@ -10,7 +10,7 @@ import ImageGallery from '../ImageGallery/ImageGallery';
 import ImageModal from '../ImageModal/ImageModal';
 
 import css from './App.module.css';
-import { UnsplashPhoto } from '../unsplash-api.types';
+import { UnsplashPhoto } from '../../api/unsplash-api.types';
 import { ModalInfo } from './App.types';
 
 const App = () => {
@@ -40,7 +40,7 @@ const App = () => {
         setErrorText('No search results found ...');
         setTotalPage(page < data.total_pages);
         setImages(prevImages => [...prevImages, ...data.results]);
-      } catch (error) {
+      } catch {
         setError(true);
         setErrorText('Oops! Something went wrong! Reload!');
       } finally {
